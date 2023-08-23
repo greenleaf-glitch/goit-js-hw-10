@@ -5,8 +5,8 @@ const CAT_API_URL = 'https://api.thecatapi.com/v1/';
 const CAT_API_ENDPOINT = 'breeds/';
 const CAT_INFO_URL = 'https://api.thecatapi.com/v1/images/';
 
-const AXIOS_KEY = (axios.defaults.headers.common['x-api-key'] =
-  'api_key=live_1CvzBHR9J6nLSt2wdKpcvsfMKA4iUHP77ZaTYHTAZIqJJMJaOeN1FB0e3mnQgzkP');
+axios.defaults.headers.common['x-api-key'] =
+  'api_key=live_1CvzBHR9J6nLSt2wdKpcvsfMKA4iUHP77ZaTYHTAZIqJJMJaOeN1FB0e3mnQgzkP';
 
 export function fetchBreeds() {
   return fetch(`${CAT_API_URL}${CAT_API_ENDPOINT}`).then(result => {
@@ -19,11 +19,11 @@ export function fetchBreeds() {
 }
 
 export function getCatByID(id) {
-  const options = {
-    headers: {
-      'x-api-key': AXIOS_KEY,
-    },
-  };
+  //   const options = {
+  //     headers: {
+  //       '': AXIOS_KEY,
+  //     },
+  //   };
 
   const searchUrl = `${CAT_INFO_URL}${id}`;
 

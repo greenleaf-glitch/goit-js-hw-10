@@ -56,9 +56,10 @@ fetchBreeds()
     refs.loader.classList.add('is-hidden');
     refs.catSelect.classList.remove('is-hidden');
   })
-  .catch(err =>
-    Notify.failure('Oops! Something went wrong! Try reloading the page!')
-  );
+  .catch(err => {
+    console.log(err);
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
+  });
 
 function renderForm(id, name) {
   return (breedMarkup = `<option value="${id}">${name}</option>`);

@@ -12,6 +12,10 @@
   overflow: hidden;
 }
 
+body {
+  background-color: rgb(238, 237, 237);
+}
+
 .cat-info {
   display: flex;
   column-gap: 30px;

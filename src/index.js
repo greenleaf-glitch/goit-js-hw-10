@@ -23,14 +23,10 @@ function onCatSelect(evt) {
 
   getCatByID(selectedBreedID)
     .then(data => {
+      const { name, description, temperament } = data.breeds[0];
       refs.loader.classList.remove('is-hidden');
       setTimeout(() => {
-        renderSelectedCat(
-          data.url,
-          data.breeds[0].name,
-          data.breeds[0].description,
-          data.breeds[0].temperament
-        );
+        renderSelectedCat(data.url, name, description, temperament);
         refs.loader.classList.add('is-hidden');
       }, 500);
     })
@@ -44,7 +40,9 @@ fetchBreeds()
     refs.loader.classList.remove('is-hidden');
 
     const markupForm = results
-      .map(result => renderForm(result.reference_image_id, result.name))
+      .map(result => {
+        return `<option value="${result.reference_image_id}">${result.name}</option>`;
+      })
       .join('');
 
     refs.catSelect.innerHTML = markupForm;
@@ -60,10 +58,6 @@ fetchBreeds()
     console.log(err);
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   });
-
-function renderForm(id, name) {
-  return (breedMarkup = `<option value="${id}">${name}</option>`);
-}
 
 function renderSelectedCat(url, name, description, temperament) {
   const selectedCatMarkup = `<img class="cat-img" src="${url}" alt="${name}" width=400px/>

@@ -27,7 +27,7 @@ export function getCatByID(id) {
 
   const searchUrl = `${CAT_INFO_URL}${id}`;
 
-  return fetch(searchUrl, options)
+  return fetch(searchUrl)
     .then(res => {
       if (!res.ok) {
         throw new Error();

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/loader.css" />
+    <link rel="stylesheet" href="./css/slimselect.css" />
+    <title>Homework 10</title>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <select id="single"></select>
+
+    <div class="loader-container">
+      <span class="loader loader-pos"></span>
+      <p class="loader-txtcont">Loading data, please wait...</p>
+    </div>
+    <div class="cat-info"></div>
+
+    <!-- <p class="error">Oops! Something went wrong! Try reloading the page!</p> -->
+
+    <script src="index.js" type="module"></script>
   </body>
 </html>
